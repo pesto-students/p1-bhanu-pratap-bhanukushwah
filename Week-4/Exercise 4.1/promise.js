@@ -4,55 +4,50 @@ let STATE = {
     "REJECTED": "REJECTED",
 }
 
-module.exports = function CustomPromise(callback) {
-    let onResolve;
-    let onReject;
+class CustomPromise {
+    constructor(callback) {
+        this.state = STATE.PENDING
+        this.value = undefined
+        this.error = undefined
+        this.isCalled = false
 
-    let currentState = STATE.PENDING;
-    let value = undefined;
-    let isCalled = false;
+        this.onResolve = this.onResolve.bind(this)
+        this.onReject = this.onReject.bind(this)
 
-    _resolve = (val) => {
-        currentState = STATE.FULFILLED;
-        value = val;
-
-        if (typeof onResolve === "function") {
-            onResolve(value)
-            isCalled = true;
+        try {
+            callback(this.onResolve, this.onReject)
+        } catch (error) {
+            this.onReject(error)
         }
     }
 
-    _reject = (error) => {
-        currentState = STATE.REJECTED;
-        value = error;
-
-        if (typeof onReject === "function") {
-            onReject(value)
-            isCalled = true;
-        }
+    onResolve(value) {
+        this.state = STATE.FULFILLED
+        this.value = value
     }
 
-    this.then = (callback) => {
-        onResolve = callback
-        if (currentState === STATE.FULFILLED && !isCalled) {
-            isCalled = true;
-            onResolve(value)
+    onReject(error) {
+        this.state = STATE.REJECTED
+        this.error = error
+    }
+
+    then(callback) {
+        if (this.state === STATE.FULFILLED && !this.isCalled) {
+            this.isCalled = true;
+            callback(this.value);
         }
+
         return this
     }
 
-    this.catch = (callback) => {
-        onReject = callback
-        if (currentState === STATE.REJECTED && !isCalled) {
-            isCalled = true;
-            onReject(value)
+    catch(callback) {
+        if (this.state === STATE.REJECTED && !this.isCalled) {
+            this.isCalled = true;
+            callback(this.error);
         }
-        return this
-    }
 
-    try {
-        callback(_resolve, _reject)
-    } catch (error) {
-        _reject(error)
+        return this
     }
 }
+
+module.exports = { CustomPromise }

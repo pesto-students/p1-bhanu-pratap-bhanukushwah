@@ -1,4 +1,4 @@
-const CustomPromise = require('./promise')
+const { CustomPromise } = require('./promise')
 
 function getNumber() {
     return Math.floor(Math.random() * 10000)
