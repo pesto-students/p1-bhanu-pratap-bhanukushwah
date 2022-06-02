@@ -12,3 +12,7 @@
 ## Usage
 
 ``` npm run test ```
+
+## Live linked
+
+``` https://sparkling-ganache-f71678.netlify.app/ ```
