@@ -8,11 +8,9 @@ import Tab from './components/Tab/Tab';
 import Task from './components/Task/Task';
 
 function App() {
-  const [todos, setTodos] = useState([{ id: 1, task: "Hello world", isCompleted: false }])
+  const [todos, setTodos] = useState([])
   let options = ["All", "Pending", "Completed"]
   const [selectedTab, setSelectedTab] = useState("All")
-  console.log("todos => ", todos)
-
   const addTodo = (message) => {
     setTodos([
       ...todos,
