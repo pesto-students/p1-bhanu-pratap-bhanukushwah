@@ -1,0 +1,44 @@
+.short-link-item {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--gray-color);
+  padding: 1rem 0rem;
+}
+
+.short-link-item p {
+  margin: 0;
+  padding: 0;
+}
+
+.short-link-item button {
+  background: none;
+  border: none;
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+  cursor: pointer;
+}
+
+.original-link {
+  word-break: break-all;
+}
+
+.short-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.short-link-item button img {
+  height: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .short-link-item {
+    grid-template-columns: 1fr;
+  }
+}

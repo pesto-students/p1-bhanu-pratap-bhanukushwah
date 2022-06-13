@@ -1,0 +1,25 @@
+.contact-section {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.contact-section-content > h3,
+h2 {
+  padding: 0;
+  margin: 0;
+}
+.contact-section-image img {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-section-content {
+    text-align: center;
+  }
+}

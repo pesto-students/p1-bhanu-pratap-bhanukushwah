@@ -1,0 +1,43 @@
+.notification-wrapper {
+  width: 40%;
+  position: fixed;
+  top: 0;
+  padding: 1rem;
+}
+
+.notification {
+  margin: 1rem;
+  position: relative;
+  background-color: #fff;
+  padding: 1.5rem;
+  padding-right: 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 8px rgb(0 0 0/0.04);
+}
+
+.notification.notification-danger {
+  color: var(--danger-color);
+}
+.notification.notification-warning {
+  color: var(--warning-color);
+}
+.notification.notification-success {
+  color: var(--success-color);
+}
+.notification.notification-default {
+  color: var(--black-color);
+}
+
+button.notification-close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .notification-wrapper {
+    width: calc(100vw - 2rem);
+  }
+}
