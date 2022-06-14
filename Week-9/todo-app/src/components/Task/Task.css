@@ -1,0 +1,41 @@
+.tasks-list > .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0rem;
+  border-bottom: 1px solid #999da3;
+  gap: 0.5rem;
+}
+.tasks-list > .item > .task-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.tasks-list > .item > .task-content-wrapper > p.cut-through {
+  text-decoration: line-through;
+}
+
+.tasks-list > .item > .task-content-wrapper > input {
+  min-height: 1rem;
+  min-width: 1rem;
+}
+
+.tasks-list > .item > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.25rem;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  border: 1px solid #ff4757;
+}
+.tasks-list > .item > button:hover {
+  background-color: #ffdadd;
+  transition: background-color 0.5s;
+}
+
+.tasks-list > .item > button > img {
+  max-height: 1rem;
+  max-width: 1rem;
+}
