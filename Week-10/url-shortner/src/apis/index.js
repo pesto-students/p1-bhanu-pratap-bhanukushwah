@@ -6,6 +6,6 @@ export const createShortLink = async (longURL) => {
         const response = await axios.get(url)
         return response.data.result
     } catch (error) {
-        console.log('error', error)
+        throw new Error("Oops, Something went wrong!!")
     }
 }

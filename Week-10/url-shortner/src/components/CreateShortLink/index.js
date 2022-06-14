@@ -14,24 +14,31 @@ const CreateShortLink = () => {
     const notification = useNotification()
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        setIsLoading(true)
-        let longUrl = event.target.url.value;
-        if (isValidateURL(longUrl)) {
-            let shortLinkDetails = await createShortLink(longUrl)
-            addShortLink(shortLinkDetails)
-            setIsLoading(false)
-            notification.open({
-                status: 'success',
-                message: "Link has been created successfully!!"
-            })
-            event.target.reset()
-        } else {
+        try {
+            event.preventDefault();
+            setIsLoading(true)
+            let longUrl = event.target.url.value;
+            if (isValidateURL(longUrl)) {
+                let shortLinkDetails = await createShortLink(longUrl)
+                addShortLink(shortLinkDetails)
+                setIsLoading(false)
+                notification.open({
+                    status: 'success',
+                    message: "Link has been created successfully!!"
+                })
+                event.target.reset()
+            } else {
+                notification.open({
+                    status: 'danger',
+                    message: "Please enter a valid url!"
+                })
+                setIsLoading(false)
+            }
+        } catch (error) {
             notification.open({
                 status: 'danger',
-                message: "Please enter a valid url!"
+                message: error.message
             })
-            setIsLoading(false)
         }
     }
 
