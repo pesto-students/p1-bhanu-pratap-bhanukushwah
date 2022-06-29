@@ -1,0 +1,27 @@
+header {
+  background: var(--white-color);
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav .logo a {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--black-color);
+}
+
+.nav-link-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link-container li.nav-link {
+  list-style: none;
+}
+
+.nav-link-container li.nav-link a {
+  color: var(--black-color);
+  font-weight: 600;
+}
