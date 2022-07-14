@@ -1,0 +1,60 @@
+.app {
+  background: #00c6ff;
+  background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-app-wrapper {
+  background-color: #ffffff;
+  height: 60vh;
+  width: 30vw;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.tabs-wrapper {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.tab-item {
+  cursor: pointer;
+  color: #999da3;
+  padding: 0.25rem;
+}
+
+.tab-item.selected {
+  color: #0072ff;
+  font-weight: bold;
+  border-bottom: 2px solid #0072ff;
+}
+
+.tasks-list {
+  height: 45vh;
+  overflow-y: scroll;
+}
+
+.tasks-list::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .todo-app-wrapper {
+    background-color: #ffffff;
+    height: 90%;
+    width: 100%;
+    margin: 0 1rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  .tasks-list {
+    height: 75vh;
+    overflow-y: scroll;
+  }
+}

@@ -1,0 +1,32 @@
+.hero-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.hero-section img {
+  max-height: 40vh;
+  max-width: 100%;
+}
+
+.hero-section-image {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section-image {
+    order: 1;
+  }
+
+  .hero-section-content {
+    order: 2;
+  }
+}
